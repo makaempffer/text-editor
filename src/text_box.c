@@ -46,5 +46,9 @@ void draw_text(TextBox text_box) {
 }
 
 void draw_cursor(TextBox text_box) {
-  DrawRectangle((text_box.cursor_x) * FONT_SIZE / 2, (text_box.cursor_y - text_box.starting_line) * FONT_SIZE, FONT_SIZE / 2, FONT_SIZE, CURSOR_COLOR);
+  DrawRectangle((text_box.cursor_x + 4) * FONT_SIZE / 2, (text_box.cursor_y - text_box.starting_line) * FONT_SIZE, FONT_SIZE / 2, FONT_SIZE, CURSOR_COLOR);
+}
+
+void insert_character(TextBox *text_box, char character, int line, int x, int y) {
+  printf("Cursor on: %c\n", text_box->lines[line][x]);
 }

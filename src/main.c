@@ -34,16 +34,20 @@ int main(void)
         text_box.starting_line++;
       } 
       printf("cursor_y: %d / starting_line: %d / Line: [%d]\n", text_box.cursor_y, text_box.starting_line, text_box.cursor_y + text_box.starting_line);
+      insert_character(&text_box, 'c', text_box.cursor_y, text_box.cursor_x, text_box.cursor_y);
     } else if (IsKeyPressed(KEY_UP)) {
       text_box.cursor_y--;
       if (text_box.cursor_y < text_box.starting_line) {
         text_box.starting_line--;
       }
       printf("cursor_y: %d / starting_line: %d / Line: [%d]\n", text_box.cursor_y, text_box.starting_line, text_box.cursor_y + text_box.starting_line);
+      insert_character(&text_box, 'c', text_box.cursor_y, text_box.cursor_x, text_box.cursor_y);
     }
     if (IsKeyPressed(KEY_RIGHT) && text_box.cursor_x < text_box.max_char) {
       text_box.cursor_x++;
+      insert_character(&text_box, 'c', text_box.cursor_y, text_box.cursor_x, text_box.cursor_y);
     } else if (IsKeyPressed(KEY_LEFT) && text_box.cursor_x > 0) {
+      insert_character(&text_box, 'c', text_box.cursor_y, text_box.cursor_x, text_box.cursor_y);
       text_box.cursor_x--;
     }
 
