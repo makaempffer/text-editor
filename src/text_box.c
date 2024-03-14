@@ -13,7 +13,7 @@ void setup_text_box(TextBox *text_box) {
   text_box->cursor_x = 0;
   text_box->cursor_y = 0;
   text_box->starting_line = 0;
-  printf("[DEBUG] Text box setup done\n");
+  printf("[DEBUG] Text box variables initialized\n");
 }
 
 void draw_text_box(TextBox text_box) {
@@ -49,6 +49,7 @@ void draw_cursor(TextBox text_box) {
   DrawRectangle((text_box.cursor_x + 4) * FONT_SIZE / 2, (text_box.cursor_y - text_box.starting_line) * FONT_SIZE, FONT_SIZE / 2, FONT_SIZE, CURSOR_COLOR);
 }
 
-void insert_character(TextBox *text_box, char character, int line, int x, int y) {
-  printf("Cursor on: %c\n", text_box->lines[line][x]);
+void insert_character(TextBox *text_box, char character, int line, int x) {
+  printf("[DEBUG] Inserted: %c at %d %d\n", character, x, line);
+  text_box->lines[line][x] = character;
 }
